@@ -6,8 +6,8 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Teste Mobile',
       debugShowCheckedModeBanner: false,
+      title: 'Teste Mobile',
       home: Scaffold(
         backgroundColor: const Color.fromRGBO(255, 50, 99, 1),
         body: SafeArea(
@@ -17,10 +17,13 @@ class HomePage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  const Icon(
-                    Icons.account_circle,
-                    size: 150,
-                    color: Colors.white,
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 40.0),
+                    child: Icon(
+                      Icons.account_circle,
+                      size: 150,
+                      color: Colors.white,
+                    ),
                   ),
                   Align(
                     alignment: Alignment.bottomCenter,
@@ -78,7 +81,7 @@ class HomePage extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.all(40.0),
+                            padding: const EdgeInsets.all(40.0),
                             child: Column(
                               children: [
                                 const Align(
@@ -96,6 +99,7 @@ class HomePage extends StatelessWidget {
                                   ),
                                 ),
                                 const TextField(
+                                  obscureText: true,
                                   decoration: InputDecoration(
                                     filled: true,
                                     fillColor: Color.fromRGBO(241, 241, 241, 1),
@@ -111,16 +115,13 @@ class HomePage extends StatelessWidget {
                                     style: ButtonStyle(
                                       backgroundColor:
                                           MaterialStateProperty.all<Color>(
-                                              Color.fromRGBO(255, 50, 99, 1)),
-                                      shape: MaterialStateProperty.all<
-                                          RoundedRectangleBorder>(
-                                        RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(50),
-                                        ),
-                                      ),
+                                              const Color.fromRGBO(
+                                                  255, 50, 99, 1)),
                                     ),
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.pushNamed(
+                                          context, '/devicesPage');
+                                    },
                                     child: Container(
                                       alignment: Alignment.center,
                                       width: double.infinity,
